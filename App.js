@@ -1,4 +1,4 @@
-//importing the required modules
+// importing the required modules
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/mongoConnect.js';
@@ -8,26 +8,27 @@ import productRouter from './routes/productRoute.js';
 import cookieParser from "cookie-parser";
 import cartRouter from './routes/cartRoute.js';
 
-//importing the required modules
 dotenv.config();
+connectDB(); // connecting to the database
 
-connectDB();// //connecting to the database
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: 'https://h-shop-production.up.railway.app/profile', // <-- no space, no slash
+    origin: 'https://h-shop-production.up.railway.app', // make sure this matches frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-//importing the routes
 app.use(cookieParser());
+
+// importing the routes
 app.use('/user', router);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
-app.listen(PORT,  () => {
+
+app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
