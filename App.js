@@ -13,7 +13,7 @@ dotenv.config();
 
 connectDB();// //connecting to the database
 const app = express();
-const Port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors({
     origin: 'https://h-shop-production.up.railway.app/profile', // <-- no space, no slash
@@ -28,6 +28,6 @@ app.use(cookieParser());
 app.use('/user', router);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
-app.listen(Port,  () => {
+app.listen(PORT,  () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
