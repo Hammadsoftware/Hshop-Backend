@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: 'http://localhost:5173', // <-- no space, no slash
+    origin: 'https://h-shop-production.up.railway.app/profile', // <-- no space, no slash
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
@@ -29,5 +29,5 @@ app.use('/user', router);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on http://0.0.0.0:${PORT}`);
+  console.log(`Server is running on http://16.171.149.3:${PORT}`);
 });
