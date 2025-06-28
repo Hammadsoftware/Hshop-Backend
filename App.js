@@ -28,6 +28,6 @@ app.use(cookieParser());
 app.use('/user', router);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
-app.listen(Port, () => {
+app.listen(Port,'0.0.0.0', () => {
     console.log(`Server is running on port http://localhost:${Port}`);
 });
