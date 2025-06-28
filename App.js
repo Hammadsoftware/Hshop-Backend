@@ -13,7 +13,7 @@ dotenv.config();
 
 connectDB();// //connecting to the database
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.use(cors({
     origin: 'https://h-shop-production.up.railway.app/profile', // <-- no space, no slash
