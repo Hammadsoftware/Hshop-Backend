@@ -20,6 +20,9 @@ app.use(cors({
     credentials: true,
 }));
 
+app.get('/',(req,res)=>{
+return Hello world;
+}
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
